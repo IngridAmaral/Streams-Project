@@ -28,7 +28,7 @@ class StreamCeate extends React.Component {
     }
 
     renderInput = ({ input, label, meta }) => { //destructured
-        console.log(meta)
+        //console.log(meta)
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`
         return (
             <div className={className}>
@@ -41,7 +41,8 @@ class StreamCeate extends React.Component {
 
     handleSubmit = (formValues) => {
         //e.preventDefault(); no need to call it anymore
-        console.log(formValues)
+        //console.log(formValues);
+        this.props.createStream(formValues)
     }
  
     render() {
@@ -82,4 +83,4 @@ const formWrapped = reduxForm({
     validate
 })(StreamCeate);
 
-export default connect()(formWrapped)
+export default connect(null, { createStream })(formWrapped)
