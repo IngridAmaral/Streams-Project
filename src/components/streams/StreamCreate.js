@@ -13,14 +13,25 @@ class StreamCeate extends React.Component {
     //         )    
     //         return <input {...formProps.input} /> //take all the key value pairs and add them as properties to the input element
     //     } NEW SINTAX BELLOW
-    
+    renderError = ({ error, touched }) => {
+        if (touched && error) {
+            return (
+                <div className='ui error message'>
+                    <div  className='header'>
+                        {error}
+                    </div>
+                </div>
+            )
+        }
+    }
+
     renderInput = ({ input, label, meta }) => { //destructured
         console.log(meta)
         return (
             <div className='field'>
                 <label>{label}</label>
-                <input {...input} />
-                <div>{meta.error}</div>
+                <input {...input} autoComplete='off' />
+                {this.renderError(meta)}
             </div>
         ) 
     }
