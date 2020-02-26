@@ -4,15 +4,13 @@ import { Field, reduxForm } from 'redux-form';
 class StreamCeate extends React.Component {
         
     //   renderInput = (formProps) => {
-    //         console.log(formProps)
-            
+    //         console.log(formProps)         
     //         return (
     //             <input 
     //                 onChange={formProps.input.onChange}
     //                 value={formProps.input.value} 
     //             />
-    //         )  
-    
+    //         )    
     //         return <input {...formProps.input} /> //take all the key value pairs and add them as properties to the input element
     //     } NEW SINTAX BELLOW
     
@@ -47,6 +45,19 @@ class StreamCeate extends React.Component {
         )
     }
 }
+
+const validate = (formValues) => {
+    const errors = {}
+    if (!formValues.title) {
+        errors.title = 'You must enter a title!';
+    }
+
+    if (!formValues.description) {
+        errors.description = 'You must enter a description!';
+    }
+
+    return errors
+};
 
 export default reduxForm({
     form: 'streamCreate'
