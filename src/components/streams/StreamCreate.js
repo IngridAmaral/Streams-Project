@@ -14,11 +14,13 @@ class StreamCeate extends React.Component {
     //         return <input {...formProps.input} /> //take all the key value pairs and add them as properties to the input element
     //     } NEW SINTAX BELLOW
     
-    renderInput = ({ input, label }) => { //destructured
+    renderInput = ({ input, label, meta }) => { //destructured
+        console.log(meta)
         return (
             <div className='field'>
                 <label>{label}</label>
                 <input {...input} />
+                <div>{meta.error}</div>
             </div>
         ) 
     }
@@ -56,9 +58,10 @@ const validate = (formValues) => {
         errors.description = 'You must enter a description!';
     }
 
-    return errors
+    return errors;
 };
 
 export default reduxForm({
-    form: 'streamCreate'
+    form: 'streamCreate',
+    validate
 })(StreamCeate);
