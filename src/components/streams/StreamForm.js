@@ -28,7 +28,7 @@ class StreamForm extends React.Component {
     }
 
     handleSubmit = (formValues) => {
-        this.props.handleSubmit(formValues)
+        this.props.submitProp(formValues)
     }
  
     render() {
