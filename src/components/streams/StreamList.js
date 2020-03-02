@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class StreamList extends React.Component {
     componentDidMount() {
         const list = this.props.fetchStreams()
-        console.log(list)
+        //console.log(list)
     }
 
     renderAdmin = (stream) => {
