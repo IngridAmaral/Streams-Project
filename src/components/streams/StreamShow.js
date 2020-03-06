@@ -1,6 +1,14 @@
 import React from 'react';
+import history from '../../history';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchStream } from '../../actions';
 
 class StreamShow extends React.Component {
+    componentDidMount() {
+        this.props.fetchStream(this.props.match.params.id)
+    }
+    
     render() {
         return (
             <div>
@@ -10,4 +18,4 @@ class StreamShow extends React.Component {
     }
 }
 
-export default StreamShow;
+export default connect(null, { fetchStream })(StreamShow);
