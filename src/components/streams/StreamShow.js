@@ -1,6 +1,4 @@
 import React from 'react';
-import history from '../../history';
-import { Link } from 'react-router-dom';
 import flv from 'flv.js'
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions';
